@@ -29,6 +29,7 @@ namespace Lista11PR2_
                 else
                 {
                     Console.WriteLine("Não está no vetor");
+
                 }
             }
         }
@@ -39,24 +40,23 @@ namespace Lista11PR2_
             vet = new int[20000];
             Random rand = new Random();
 
-            for (int i = 0; i < 5000; i++)
+            for (int i = 0; i < 20000; i++)
             {
-                vet[i] = rand.Next(1, 5);
-                Console.WriteLine("Digite um número: ");
-                num = int.Parse(Console.ReadLine());
+                vet[i] = rand.Next(1, 5000);
+            }
 
-                if (num != vet[i])
-                {
-                    Console.WriteLine();
-                }
-                else
+            Console.WriteLine("Digite um número: ");
+            num = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < 20000; i++)
+            {
+                if (num == vet[i])
                 {
                     n += 1;
-                    Console.WriteLine("O número aparece " + n + " vezes no vetor");
-
-                    i = 5000;
                 }
             }
+            Console.WriteLine("O número aparece " + n + " vezes no vetor");
+            Console.ReadKey();
         }
         public static void Ex3()
         {
