@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace Lista11PR2_
 {
@@ -17,7 +19,7 @@ namespace Lista11PR2_
 
             for (int i = 0; i < 1000; i++)
             {
-                vet[i] = rand.Next(1, 1500);
+                vet[i] = rand.Next(10, 1500);
                 Console.WriteLine("Digite um número: ");
                 num = int.Parse(Console.ReadLine());
 
@@ -42,7 +44,7 @@ namespace Lista11PR2_
 
             for (int i = 0; i < 20000; i++)
             {
-                vet[i] = rand.Next(1, 5000);
+                vet[i] = rand.Next(10, 5000);
             }
 
             Console.WriteLine("Digite um número: ");
@@ -60,18 +62,57 @@ namespace Lista11PR2_
         }
         public static void Ex3()
         {
+            int[] vet, vet1;
+            vet = new int[10];
+            vet1 = new int[10];
+            Random ran = new Random();
 
+            for (int i = 0; i < 5000; i++)
+            {
+                vet[i] = ran.Next(10, 50);
+            }
+
+            for (int i = 0; i < 5000; i++)
+            {
+                if (vet[i] % 2 == 0)
+                {
+                    vet1[i] = vet[i] / 2;
+                }
+                else
+                {
+                    vet1[i] = vet[i] * 3;
+                }
+            }
+
+            for (int i = 0; i < 5000; i++)
+            {
+                Console.WriteLine("vet[{0}] = {0}", i, vet[i]);
+                Console.WriteLine("vet1[{0}] = {0}", i, vet1[i]);
+            }
+            Console.ReadKey();
         }
         public static void Ex4()
         {
-            int[] vet;
+            int k = 1, cont = 0;
+            int[] vet, vet1 = new int[cont];
             vet = new int[5000];
             Random ran = new Random();
 
             for (int i = 0; i < 5000; i++)
             {
-                vet[i] = ran.Next(1, 5);
+                vet[i] = ran.Next(10, 50);
+
+                for(int j = 1; j < vet[i]; j++)
+                {
+                    if (vet[i] % j != 0)
+                    {
+                        cont += 1;
+                        vet1[k] = vet[i];
+                    }
+                }
             }
+            Console.WriteLine(vet1[k]);
+            Console.ReadKey();
         }
         static void Main(string[] args)
         {
